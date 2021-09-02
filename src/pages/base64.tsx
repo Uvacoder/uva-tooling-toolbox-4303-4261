@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React from "react"
 import { Layout } from "../components/Layout"
 
@@ -5,9 +6,16 @@ export default function Base64Page() {
   const [input, setInput] = React.useState("")
   const [output, setOutput] = React.useState("")
   const [isDecode, setIsDecode] = React.useState(false)
+  const [error, setError] = React.useState("")
 
   React.useEffect(() => {
-    setOutput(isDecode ? window.atob(input) : window.btoa(input))
+    setError("")
+    try {
+      const result = isDecode ? window.atob(input) : window.btoa(input)
+      setOutput(result)
+    } catch (err) {
+      setError(err.message)
+    }
   }, [input, isDecode])
 
   const useAsInput = () => {
@@ -74,8 +82,11 @@ export default function Base64Page() {
           id="output-el"
           rows={10}
           disabled
-          defaultValue={output}
-          className="w-full resize-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:border-blue-500"
+          defaultValue={error || output}
+          className={clsx(
+            `w-full resize-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:border-blue-500`,
+            error && `text-red-500`
+          )}
         ></textarea>
       </div>
     </Layout>
