@@ -10,7 +10,6 @@ export function copyTextToClipboard(
   // Prevent keyboard from showing on mobile
   element.setAttribute("readonly", "")
 
-  // @ts-expect-error
   element.style.contain = "strict"
   element.style.position = "absolute"
   element.style.left = "-9999px"
