@@ -5,7 +5,7 @@ export const tools = [
   },
   {
     name: "JWT Debugger",
-    link: "/jwt-debugger",
+    link: "/jwt",
   },
   {
     name: "URL Encode/Decode",
