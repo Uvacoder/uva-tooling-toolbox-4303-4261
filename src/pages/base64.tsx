@@ -47,7 +47,7 @@ export default function Base64Page() {
         <div className="w-1/2 p-5">
           <div className="mb-5 flex justify-between items-center">
             <label className="font-bold text-2xl" htmlFor="input-el">
-              Decoded
+              Text
             </label>
             <div>
               <CopyButton getValue={() => decoded} />

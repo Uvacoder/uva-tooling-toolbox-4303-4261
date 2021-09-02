@@ -85,7 +85,7 @@ export default function JwtPage() {
       <div className="flex divide-x">
         <div className="w-1/2 p-5 ">
           <div className="mb-5">
-            <span className="font-bold text-2xl">Encoded</span>
+            <span className="font-bold text-2xl">JWT</span>
           </div>
           {decodeError && (
             <div className="px-5 py-3 text-white bg-red-500 rounded-lg mb-3">
