@@ -1,4 +1,9 @@
 {
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build"
+  },
   "dependencies": {
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
