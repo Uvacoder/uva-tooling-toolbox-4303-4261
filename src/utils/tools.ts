@@ -19,4 +19,8 @@ export const tools = [
     name: "QR Code Generator",
     link: "/qrcode-generator",
   },
+  {
+    name: "HTML to Markdown",
+    link: "/html-to-markdown",
+  },
 ]
