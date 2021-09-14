@@ -15,4 +15,8 @@ export const tools = [
     name: "JSON Format",
     link: "/json-format",
   },
+  {
+    name: "QR Code Generator",
+    link: "/qrcode-generator",
+  },
 ]
