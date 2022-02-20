@@ -35,4 +35,8 @@ export const tools = [
     name: "Image to Base64",
     link: "/base64-image",
   },
-]
+  {
+    name: "HTML to JSX",
+    link: "/html-to-jsx",
+  },
+].sort((a, b) => (a.name > b.name ? 1 : -1))
