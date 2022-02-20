@@ -23,4 +23,8 @@ export const tools = [
     name: "HTML to Markdown",
     link: "/html-to-markdown",
   },
+  {
+    name: "Hash (MD5, SHA256, etc)",
+    link: "/hash",
+  },
 ]

@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
+    "crypto-js": "^4.1.1",
     "formik": "^2.2.9",
     "jsonwebtoken": "^8.5.1",
     "jws": "^4.0.0",
@@ -19,6 +20,7 @@
     "turndown-plugin-gfm": "^1.0.2"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/jws": "^3.2.4",
     "@types/node": "^16.7.10",
