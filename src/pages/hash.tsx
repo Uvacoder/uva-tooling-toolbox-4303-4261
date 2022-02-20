@@ -62,35 +62,33 @@ export default function HashPage() {
 
   return (
     <Layout>
-      <div className="p-5">
-        <TwoColumns>
-          <Column title="Input">
-            <Textarea
-              id="input"
-              value={input}
-              fullWidth
-              onChange={(value) => setInput(value)}
-            />
-          </Column>
-          <Column title="Result">
-            {input && (
-              <div className="space-y-5">
-                {hashed.map((hash) => {
-                  return (
-                    <div key={hash.name}>
-                      <div className="flex justify-between items-center text-sm mb-1">
-                        <span className="block mb-1">{hash.name}</span>
-                        <CopyButton getValue={() => hash.value} />
-                      </div>
-                      <pre className="code w-full">{hash.value}</pre>
+      <TwoColumns>
+        <Column title="Input">
+          <Textarea
+            id="input"
+            value={input}
+            fullWidth
+            onChange={(value) => setInput(value)}
+          />
+        </Column>
+        <Column title="Result">
+          {input && (
+            <div className="space-y-5">
+              {hashed.map((hash) => {
+                return (
+                  <div key={hash.name}>
+                    <div className="flex justify-between items-center text-sm mb-1">
+                      <span className="block mb-1">{hash.name}</span>
+                      <CopyButton getValue={() => hash.value} />
                     </div>
-                  )
-                })}
-              </div>
-            )}
-          </Column>
-        </TwoColumns>
-      </div>
+                    <pre className="code w-full">{hash.value}</pre>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </Column>
+      </TwoColumns>
     </Layout>
   )
 }
