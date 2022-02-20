@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { camelCase, pascalCase, pathCase, snakeCase } from "change-case"
+import titleCase from "title"
 import { Layout } from "../components/Layout"
 import { Textarea } from "../components/Textarea"
 import { Column, TwoColumns } from "../components/TwoColumns"
@@ -25,6 +26,11 @@ export default function TextCasePage() {
       name: "Snake Case",
       value: "",
       convert: (value) => snakeCase(value),
+    },
+    {
+      name: "Title Case",
+      value: "",
+      convert: (value) => titleCase(value),
     },
     {
       name: "Path Case",
