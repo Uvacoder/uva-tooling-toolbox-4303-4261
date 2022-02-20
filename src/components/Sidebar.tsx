@@ -8,15 +8,8 @@ import { tools } from "../utils/tools"
 export const Sidebar = () => {
   const router = useRouter()
   const [showSidebar, setShowSidebar] = useState(false)
-  const [lock, unlock] = useScrollLock()
 
-  useEffect(() => {
-    if (showSidebar) {
-      lock()
-    } else {
-      unlock()
-    }
-  }, [showSidebar])
+  useScrollLock(showSidebar)
 
   return (
     <div className="md:block md:w-72 bg-gray-100 border-r md:fixed left-0 top-0 bottom-0">
