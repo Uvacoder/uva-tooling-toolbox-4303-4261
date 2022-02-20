@@ -4,16 +4,16 @@ module.exports = {
     // Needed by `htmltojsx` package
     config.plugins.push(
       new webpack.DefinePlugin({
-        IN_BROWSER: !isServer,
+        IN_BROWSER: true,
       })
     )
 
     // Replace React with Preact in client production build
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
-        react: "preact/compat",
-        "react-dom/test-utils": "preact/test-utils",
-        "react-dom": "preact/compat",
+        react$: "preact/compat",
+        "react-dom/test-utils$": "preact/test-utils",
+        "react-dom$": "preact/compat",
       })
     }
 
