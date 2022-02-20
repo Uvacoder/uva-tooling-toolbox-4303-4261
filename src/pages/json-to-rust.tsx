@@ -1,5 +1,5 @@
 import { JsonToTypeLayout } from "../components/JsonToTypeLayout"
 
 export default function Page() {
-  return <JsonToTypeLayout mode="typescript" />
+  return <JsonToTypeLayout mode="rust" />
 }

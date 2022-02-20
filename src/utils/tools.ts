@@ -39,4 +39,8 @@ export const tools = [
     name: "JSON to TypeScript",
     link: "/json-to-typescript",
   },
-]
+  {
+    name: "JSON to Rust",
+    link: "/json-to-rust",
+  },
+].sort((a, b) => (a.name > b.name ? 1 : -1))
