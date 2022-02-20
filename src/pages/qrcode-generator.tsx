@@ -4,6 +4,7 @@ import QRCode from "qrcode"
 import { Layout } from "../components/Layout"
 import { ErrorMessage } from "../components/ErrorMessage"
 import { Button, CopyButton } from "../components/Button"
+import { Column, TwoColumns } from "../components/TwoColumns"
 
 export default function QrcodePage() {
   const [input, setInput] = React.useState("")
@@ -25,17 +26,11 @@ export default function QrcodePage() {
 
   return (
     <Layout>
-      <div className="flex divide-x min-h-screen">
-        <div className="w-1/2 p-5">
-          <div className="mb-5 flex justify-between items-center">
-            <label className="font-bold text-2xl" htmlFor="input-el">
-              Input
-            </label>
-            <div>
-              <CopyButton getValue={() => input} />
-            </div>
-          </div>
-
+      <TwoColumns>
+        <Column
+          title="Input"
+          renderRight={() => <CopyButton getValue={() => input} />}
+        >
           <ErrorMessage className="mb-2" message={error} />
           <textarea
             rows={10}
@@ -44,16 +39,11 @@ export default function QrcodePage() {
             value={input}
             onChange={handleInputChange}
           ></textarea>
-        </div>
-        <div className="w-1/2 p-5">
-          <div className="mb-5 flex justify-between">
-            <label htmlFor="output-el" className="font-bold text-2xl">
-              QR Code
-            </label>
-          </div>
+        </Column>
+        <Column title="QR Code">
           {qrcode && <img className="max-w-full" src={qrcode} />}
-        </div>
-      </div>
+        </Column>
+      </TwoColumns>
     </Layout>
   )
 }

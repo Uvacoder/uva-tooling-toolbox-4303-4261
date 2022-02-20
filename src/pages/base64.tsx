@@ -3,6 +3,7 @@ import React from "react"
 import { Layout } from "../components/Layout"
 import { ErrorMessage } from "../components/ErrorMessage"
 import { Button, CopyButton } from "../components/Button"
+import { Column, TwoColumns } from "../components/TwoColumns"
 
 export default function Base64Page() {
   const [encoded, setEncoded] = React.useState("")
@@ -43,17 +44,11 @@ export default function Base64Page() {
 
   return (
     <Layout>
-      <div className="flex divide-x min-h-screen">
-        <div className="w-1/2 p-5">
-          <div className="mb-5 flex justify-between items-center">
-            <label className="font-bold text-2xl" htmlFor="input-el">
-              Text
-            </label>
-            <div>
-              <CopyButton getValue={() => decoded} />
-            </div>
-          </div>
-
+      <TwoColumns>
+        <Column
+          title="Text"
+          renderRight={() => <CopyButton getValue={() => decoded} />}
+        >
           <ErrorMessage className="mb-2" message={encodingError} />
           <textarea
             rows={10}
@@ -62,16 +57,11 @@ export default function Base64Page() {
             value={decoded}
             onChange={handleDecodedChange}
           ></textarea>
-        </div>
-        <div className="w-1/2 p-5">
-          <div className="mb-5 flex justify-between">
-            <label htmlFor="output-el" className="font-bold text-2xl">
-              Encoded
-            </label>
-            <div>
-              <CopyButton getValue={() => encoded} />
-            </div>
-          </div>
+        </Column>
+        <Column
+          title="Encoded"
+          renderRight={() => <CopyButton getValue={() => encoded} />}
+        >
           <ErrorMessage className="mb-2" message={decodingError} />
           <textarea
             id="output-el"
@@ -82,8 +72,8 @@ export default function Base64Page() {
               `w-full resize-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:border-blue-500`
             )}
           ></textarea>
-        </div>
-      </div>
+        </Column>
+      </TwoColumns>
     </Layout>
   )
 }
