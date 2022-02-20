@@ -1,13 +1,5 @@
-/** @type {import('next').NextConfig} */
 module.exports = {
-  webpack(config, { dev, isServer, webpack }) {
-    // Needed by `htmltojsx` package
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        IN_BROWSER: !isServer,
-      })
-    )
-
+  webpack(config, { dev, isServer }) {
     // Replace React with Preact in client production build
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
