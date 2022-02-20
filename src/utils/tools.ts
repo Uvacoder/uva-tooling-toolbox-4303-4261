@@ -27,4 +27,8 @@ export const tools = [
     name: "Hash (MD5, SHA256, etc)",
     link: "/hash",
   },
+  {
+    name: "Text Case",
+    link: "/text-case",
+  },
 ]
