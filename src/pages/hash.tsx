@@ -20,8 +20,9 @@ export default function HashPage() {
     <Layout>
       <div className="p-5">
         <TwoColumns>
-          <Column title="Hash">
+          <Column title="Input">
             <Textarea
+              id="input"
               value={input}
               fullWidth
               onChange={(value) => setInput(value)}
