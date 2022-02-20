@@ -31,4 +31,8 @@ export const tools = [
     name: "Text Case",
     link: "/text-case",
   },
+  {
+    name: "Image to Base64",
+    link: "/base64-image",
+  },
 ]
