@@ -24,9 +24,9 @@ export const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
           content="All the tools you need in one place!"
         />
       </Head>
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 pt-12 md:pt-0">
         <Sidebar />
-        <main className="flex-1 ml-72 min-h-screen">{children}</main>
+        <main className="flex-1 md:ml-72 min-h-screen">{children}</main>
       </div>
     </>
   )

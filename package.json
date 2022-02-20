@@ -1,5 +1,12 @@
 {
   "private": true,
+  "name": "one-tooling",
+  "license": "GPL-3.0",
+  "author": {
+    "name": "EGOIST (Kevin)",
+    "email": "hi@egoist.sh",
+    "url": "https://egoist.sh"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build"

@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout"
 import clsx from "clsx"
 import { Button, CopyButton } from "../components/Button"
 import { ErrorMessage } from "../components/ErrorMessage"
+import { Column, TwoColumns } from "../components/TwoColumns"
 
 const sample = `<p><strong>Advertisement 😃</strong></p>
 <ul>
@@ -253,15 +254,16 @@ export default function HtmlToMarkdownPage() {
 
   return (
     <Layout>
-      <div className="flex divide-x min-h-screen">
-        <div className="w-1/2 p-5">
-          <div className="mb-5 flex justify-between items-center">
-            <span className="text-2xl font-bold">HTML</span>
-            <div className="space-x-3 flex items-center">
+      <TwoColumns>
+        <Column
+          title="HTML"
+          renderRight={() => (
+            <>
               <Button onClick={() => setInput(sample)}>Sample</Button>
               <CopyButton getValue={() => input} />
-            </div>
-          </div>
+            </>
+          )}
+        >
           <ErrorMessage className="mb-2" message={error} />
           <div>
             <textarea
@@ -271,14 +273,11 @@ export default function HtmlToMarkdownPage() {
               onChange={(e) => setInput(e.target.value)}
             ></textarea>
           </div>
-        </div>
-        <div className="w-1/2 p-5">
-          <div className="mb-5 flex items-center justify-between">
-            <span className="text-2xl font-bold">Markdown</span>
-            <div>
-              <CopyButton getValue={() => output} />
-            </div>
-          </div>
+        </Column>
+        <Column
+          title="Markdown"
+          renderRight={() => <CopyButton getValue={() => output} />}
+        >
           <div>
             <textarea
               className={clsx(`h-full input w-full`, error && `text-red-500`)}
@@ -287,8 +286,8 @@ export default function HtmlToMarkdownPage() {
               disabled
             ></textarea>
           </div>
-        </div>
-      </div>
+        </Column>
+      </TwoColumns>
     </Layout>
   )
 }
