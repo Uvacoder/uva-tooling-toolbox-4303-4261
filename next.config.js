@@ -9,6 +9,11 @@ module.exports = {
       })
     }
 
+    config.experiments = config.experiments || {}
+    Object.assign(config.experiments, {
+      asyncWebAssembly: true,
+    })
+
     return config
   },
 }

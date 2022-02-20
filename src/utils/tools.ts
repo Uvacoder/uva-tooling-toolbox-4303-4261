@@ -35,4 +35,8 @@ export const tools = [
     name: "Image to Base64",
     link: "/base64-image",
   },
+  {
+    name: "JSON to TypeScript",
+    link: "/json-to-typescript",
+  },
 ]
