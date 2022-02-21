@@ -1,7 +1,7 @@
 import React from "react"
 import { Sidebar } from "./Sidebar"
 import Head from "next/head"
-import { tools } from "../utils/tools"
+import { tools } from "~/tools"
 import { useRouter } from "next/router"
 
 export const Layout: React.FC<{ title?: string }> = ({ children, title }) => {

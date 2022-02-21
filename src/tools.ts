@@ -43,4 +43,8 @@ export const tools = [
     name: "JSON to Rust",
     link: "/json-to-rust",
   },
+  {
+    name: "Text Difference",
+    link: "/text-diff",
+  },
 ].sort((a, b) => (a.name > b.name ? 1 : -1))

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import clsx from "clsx"
 import { useScrollLock } from "../hooks/useScrollLock"
-import { tools } from "../utils/tools"
+import { tools } from "~/tools"
 
 export const Sidebar = () => {
   const router = useRouter()

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Layout } from "../components/Layout"
-import { tools } from "../utils/tools"
+import { tools } from "~/tools"
 
 export default function HomePage() {
   return (
