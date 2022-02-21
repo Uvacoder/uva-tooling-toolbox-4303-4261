@@ -70,7 +70,7 @@ export const Sidebar = () => {
       </header>
       <div
         className={clsx(
-          `fixed md:relative md:block backdrop-blur-lg top-12 bottom-0 left-0 w-full border-r md:top-0 md:border-r-0`,
+          `fixed z-10 md:relative md:block backdrop-blur-lg top-12 bottom-0 left-0 w-full border-r md:top-0 md:border-r-0`,
           showSidebar ? `` : `hidden`
         )}
       >
