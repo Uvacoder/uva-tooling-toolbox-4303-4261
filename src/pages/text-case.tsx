@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react"
-import { camelCase, pascalCase, pathCase, snakeCase } from "change-case"
+import {
+  camelCase,
+  pascalCase,
+  pathCase,
+  snakeCase,
+  constantCase,
+} from "case-anything"
 import titleCase from "title"
 import { Layout } from "../components/Layout"
 import { Textarea } from "../components/Textarea"
@@ -36,6 +42,11 @@ export default function TextCasePage() {
       name: "Path Case",
       value: "",
       convert: (value) => pathCase(value),
+    },
+    {
+      name: "Constant Case",
+      value: "",
+      convert: (value) => constantCase(value),
     },
   ])
 
