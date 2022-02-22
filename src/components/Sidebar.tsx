@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import clsx from "clsx"
 import { useScrollLock } from "../hooks/useScrollLock"
 import { tools } from "~/tools"
+import { Sponsors } from "./Sponsors"
 
 export const Sidebar = () => {
   const router = useRouter()
@@ -91,6 +92,7 @@ export const Sidebar = () => {
             )
           })}
         </div>
+        <Sponsors />
       </div>
     </div>
   )
