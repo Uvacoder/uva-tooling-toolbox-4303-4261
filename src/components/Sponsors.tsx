@@ -12,7 +12,7 @@ const sponsors = [
   {
     title: "Oxylabs: Innovative Proxy Service to Gather Data at Scale",
     image: oxylabs,
-    url: `https://oxylabs.io/?utm_source=egoist&utm_medium=github&utm_campaign=sponsorship`,
+    url: `https://oxylabs.io?utm_source=egoist&utm_medium=cpc&utm_campaign=egoist_github_sponsor&adgroupid=20220222`,
   },
 ].sort((a, b) => (a.title > b.title ? 1 : -1))
 
