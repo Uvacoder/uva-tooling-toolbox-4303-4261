@@ -32,8 +32,8 @@ specifiers:
   qrcode: ^1.4.4
   react: ^17.0.2
   react-dom: ^17.0.2
-  react-hot-toast: ^2.2.0
   tailwindcss: ^3.0.8
+  tailwindcss-animate: ^1.0.5
   title: ^3.4.4
   turndown: ^7.1.1
   turndown-plugin-gfm: ^1.0.2
@@ -55,7 +55,6 @@ dependencies:
   qrcode: 1.5.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  react-hot-toast: 2.2.0_react-dom@17.0.2+react@17.0.2
   title: 3.4.4
   turndown: 7.1.1
   turndown-plugin-gfm: 1.0.2
@@ -78,6 +77,7 @@ devDependencies:
   monaco-editor: 0.32.1
   postcss: 8.4.5
   tailwindcss: 3.0.8_16a290f6d0e3717bf6d2667234aebd30
+  tailwindcss-animate: 1.0.5_tailwindcss@3.0.8
   typescript: 4.5.4
 
 packages:
@@ -2343,12 +2343,6 @@ packages:
       pinkie-promise: 2.0.1
     dev: false
 
-  /goober/2.1.8:
-    resolution: {integrity: sha512-S0C85gCzcfFCMSdjD/CxyQMt1rbf2qEg6hmDzxk2FfD7+7Ogk55m8ZFUMtqNaZM4VVX/qaU9AzSORG+Gf4ZpAQ==}
-    peerDependencies:
-      csstype: ^3.0.10
-    dev: false
-
   /graceful-fs/4.2.9:
     resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==}
 
@@ -3221,20 +3215,6 @@ packages:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
     dev: false
 
-  /react-hot-toast/2.2.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-248rXw13uhf/6TNDVzagX+y7R8J183rp7MwUMNkcrBRyHj/jWOggfXTGlM8zAOuh701WyVW+eUaWG2LeSufX9g==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>=16'
-      react-dom: '>=16'
-    dependencies:
-      goober: 2.1.8
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    transitivePeerDependencies:
-      - csstype
-    dev: false
-
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -3623,6 +3603,14 @@ packages:
     dependencies:
       has-flag: 4.0.0
     dev: false
+
+  /tailwindcss-animate/1.0.5_tailwindcss@3.0.8:
+    resolution: {integrity: sha512-UU3qrOJ4lFQABY+MVADmBm+0KW3xZyhMdRvejwtXqYOL7YjHYxmuREFAZdmVG5LPe5E9CAst846SLC4j5I3dcw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      tailwindcss: 3.0.8_16a290f6d0e3717bf6d2667234aebd30
+    dev: true
 
   /tailwindcss/3.0.8_16a290f6d0e3717bf6d2667234aebd30:
     resolution: {integrity: sha512-Yww1eRYO1AxITJmW/KduZPxNvYdHuedeKwPju9Oakp7MdiixRi5xkpLhirsc81QCxHL0eoce6qKmxXwYGt4Cjw==}

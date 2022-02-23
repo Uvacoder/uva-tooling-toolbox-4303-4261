@@ -1,32 +1,14 @@
 import { useEffect, useState } from "react"
 import "../css/tailwind.css"
 import "../css/main.css"
-import toast, { Toaster } from "react-hot-toast"
 
 import { SWUpdatePopup } from "~/components/SWUpdatePopup"
-import { isWorkboxPresent } from "~/utils/workbox"
 import Script from "next/script"
 
 function MyApp({ Component, pageProps }) {
   const [enableAnalytics, setEnableAnalytics] = useState(false)
 
   useEffect(() => {
-    if (isWorkboxPresent) {
-      const wb = window.workbox
-
-      const promptNewVersionAvailable = (event) => {
-        toast.custom((t) => <SWUpdatePopup visible={t.visible} id={t.id} />, {
-          position: "top-center",
-          duration: 10000,
-          id: "sw-worker-update",
-        })
-      }
-
-      wb.addEventListener("waiting", promptNewVersionAvailable)
-
-      wb.register()
-    }
-
     if (
       process.env.NODE_ENV === "production" &&
       location.hostname === "tooling.one"
@@ -38,7 +20,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
-      <Toaster />
+      <SWUpdatePopup />
       {enableAnalytics && (
         <Script
           strategy="afterInteractive"

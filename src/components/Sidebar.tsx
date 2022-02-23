@@ -6,16 +6,16 @@ import { useScrollLock } from "../hooks/useScrollLock"
 import { tools } from "~/tools"
 import { Sponsors } from "./Sponsors"
 
-const COMMIT_SHA = process.env.COMMIT_SHA
-  ? process.env.COMMIT_SHA.slice(0, 6)
-  : "dev"
+const APP_VERSION = process.env.COMMIT_SHA
+  ? `${process.env.PKG_VERSION}-${process.env.COMMIT_SHA.slice(0, 6)}`
+  : `${process.env.PKG_VERSION}-dev`
 const COMMIT_LINK = process.env.COMMIT_SHA
   ? `https://github.com/egoist/tooling.one/commit/${process.env.COMMIT_SHA}`
   : "#"
 
 const footLinks = [
   {
-    text: `${COMMIT_SHA}`,
+    text: APP_VERSION,
     icon: (
       <svg width="1em" height="1em" viewBox="0 0 24 24">
         <path

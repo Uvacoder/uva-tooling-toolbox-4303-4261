@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "one-tooling",
+  "version": "0.1.0",
   "license": "GPL-3.0",
   "author": {
     "name": "EGOIST (Kevin)",
@@ -29,7 +30,6 @@
     "qrcode": "^1.4.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hot-toast": "^2.2.0",
     "title": "^3.4.4",
     "turndown": "^7.1.1",
     "turndown-plugin-gfm": "^1.0.2"
@@ -52,6 +52,7 @@
     "monaco-editor": "^0.32.1",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.8",
+    "tailwindcss-animate": "^1.0.5",
     "typescript": "^4.4.2"
   }
 }
