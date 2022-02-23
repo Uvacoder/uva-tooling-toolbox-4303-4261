@@ -54,7 +54,7 @@
   "background_color": "#f9fafb",
   "display": "standalone",
   "start_url": "/",
-  "theme_color": "#ffffff",
+  "theme_color": "#f9fafb",
   "orientation": "portrait",
   "description": "All the tools you need in one place!"
 }
