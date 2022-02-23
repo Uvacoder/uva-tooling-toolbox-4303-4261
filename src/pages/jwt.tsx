@@ -1,7 +1,8 @@
-import React from "react"
+import { useState, useEffect } from "react"
 import { decode } from "jws"
 import { Layout } from "../components/Layout"
-import clsx from "clsx"
+import { Column, TwoColumns } from "~/components/TwoColumns"
+import { Textarea } from "~/components/Textarea"
 
 const stringify = (data: any) => JSON.stringify(data, null, 2)
 
@@ -13,19 +14,19 @@ function base64url(str: string) {
     .replace(/\//g, "_")
 }
 
-function strToJson(str: string) {
-  return JSON.stringify(JSON.parse(str))
+function strToJson(str: string, pretty = false) {
+  return JSON.stringify(JSON.parse(str), null, pretty ? 2 : 0)
 }
 
 export default function JwtPage() {
-  const [input, setInput] = React.useState("")
-  const [header, setHeader] = React.useState("{}")
-  const [payload, setPayload] = React.useState("{}")
-  const [signature, setSignature] = React.useState("")
-  const [decodeError, setDecodeError] = React.useState("")
-  const [encodeError, setEncodeError] = React.useState("")
+  const [input, setInput] = useState("")
+  const [header, setHeader] = useState("{}")
+  const [payload, setPayload] = useState("{}")
+  const [signature, setSignature] = useState("")
+  const [decodeError, setDecodeError] = useState("")
+  const [encodeError, setEncodeError] = useState("")
 
-  React.useEffect(() => {
+  useEffect(() => {
     decodeInput(input)
   }, [])
 
@@ -34,9 +35,9 @@ export default function JwtPage() {
     setEncodeError("")
   }
 
-  const handleInputChange = (e: any) => {
-    setInput(e.target.value)
-    decodeInput(e.target.value)
+  const handleInputChange = (value: string) => {
+    setInput(value)
+    decodeInput(value)
   }
 
   const decodeInput = (input: string) => {
@@ -45,7 +46,12 @@ export default function JwtPage() {
       if (!input) return
       const decoded = decode(input)
       if (!decoded) throw new Error(`Invalid token`)
-      setPayload(stringify(decoded.payload))
+
+      setPayload(
+        typeof decoded.payload === "string"
+          ? strToJson(decoded.payload, true)
+          : stringify(decoded.payload)
+      )
       setHeader(stringify(decoded.header))
       setSignature(decoded.signature)
     } catch (err) {
@@ -65,48 +71,40 @@ export default function JwtPage() {
     }
   }
 
-  const handleHeaderChange = (e: any) => {
-    setHeader(e.target.value)
-    updateInput()
+  const handleHeaderChange = (value: string) => {
+    setHeader(value)
   }
 
-  const handlePayloadChange = (e: any) => {
-    setPayload(e.target.value)
-    updateInput()
+  const handlePayloadChange = (value: string) => {
+    setPayload(value)
   }
 
-  const handleSignatureChange = (e: any) => {
-    setSignature(e.target.value)
-    updateInput()
+  const handleSignatureChange = (value: string) => {
+    setSignature(value)
   }
+
+  useEffect(() => {
+    updateInput()
+  }, [header, payload, signature])
 
   return (
     <Layout>
-      <div className="flex divide-x">
-        <div className="w-1/2 p-5 ">
-          <div className="mb-5">
-            <span className="font-bold text-2xl">JWT</span>
-          </div>
+      <TwoColumns>
+        <Column title="JWT">
           {decodeError && (
             <div className="px-5 py-3 text-white bg-red-500 rounded-lg mb-3">
               {decodeError}
             </div>
           )}
           <div>
-            <textarea
-              className={clsx(`input w-full`)}
-              name=""
-              id=""
-              rows={10}
+            <Textarea
+              fullWidth
               value={input}
               onChange={handleInputChange}
-            ></textarea>
+            ></Textarea>
           </div>
-        </div>
-        <div className="w-1/2 p-5">
-          <div className="mb-5">
-            <span className="font-bold text-2xl">Decoded</span>
-          </div>
+        </Column>
+        <Column title="Decoded">
           {encodeError && (
             <div className="px-5 py-3 text-white bg-red-500 rounded-lg mb-3">
               {encodeError}
@@ -115,34 +113,34 @@ export default function JwtPage() {
           <div className="space-y-5">
             <div>
               <div className="mb-2">Header:</div>
-              <textarea
-                className="input w-full"
+              <Textarea
+                fullWidth
                 rows={5}
                 value={header}
                 onChange={handleHeaderChange}
-              ></textarea>
+              ></Textarea>
             </div>
             <div>
               <div className="mb-2">Payload:</div>
-              <textarea
+              <Textarea
+                fullWidth
                 rows={5}
-                className="input w-full"
                 value={payload}
                 onChange={handlePayloadChange}
-              ></textarea>
+              ></Textarea>
             </div>
             <div>
               <div className="mb-2">Signature:</div>
-              <textarea
+              <Textarea
+                fullWidth
                 rows={5}
-                className="input w-full"
                 value={signature}
                 onChange={handleSignatureChange}
-              ></textarea>
+              ></Textarea>
             </div>
           </div>
-        </div>
-      </div>
+        </Column>
+      </TwoColumns>
     </Layout>
   )
 }
