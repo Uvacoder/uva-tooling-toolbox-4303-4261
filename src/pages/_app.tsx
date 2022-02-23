@@ -1,36 +1,36 @@
-import * as React from "react";
-import "../css/tailwind.css";
-import "../css/main.css";
-import toast, { Toaster } from "react-hot-toast";
+import { useEffect } from "react"
+import "../css/tailwind.css"
+import "../css/main.css"
+import toast, { Toaster } from "react-hot-toast"
 
-import { SWUpdatePopup } from "~/components/SWUpdatePopup";
-import { isWorkboxPresent } from "~/utils/workbox";
+import { SWUpdatePopup } from "~/components/SWUpdatePopup"
+import { isWorkboxPresent } from "~/utils/workbox"
 
 function MyApp({ Component, pageProps }) {
-  React.useEffect(() => {
+  useEffect(() => {
     if (isWorkboxPresent) {
-      const wb = window.workbox;
+      const wb = window.workbox
 
       const promptNewVersionAvailable = (event) => {
         toast.custom((t) => <SWUpdatePopup visible={t.visible} id={t.id} />, {
           position: "top-center",
           duration: 10000,
           id: "sw-worker-update",
-        });
-      };
+        })
+      }
 
-      wb.addEventListener("waiting", promptNewVersionAvailable);
+      wb.addEventListener("waiting", promptNewVersionAvailable)
 
-      wb.register();
+      wb.register()
     }
-  }, []);
+  }, [])
 
   return (
     <>
       <Component {...pageProps} />
       <Toaster />
     </>
-  );
+  )
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -45,4 +45,4 @@ function MyApp({ Component, pageProps }) {
 //   return { ...appProps }
 // }
 
-export default MyApp;
+export default MyApp

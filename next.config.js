@@ -12,6 +12,9 @@ const nextConfig = {
     skipWaiting: false,
     publicExcludes: ["!noprecache/**/*", "!vendor/**/*"],
   },
+  env: {
+    COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || null,
+  },
   webpack(config, { dev, isServer }) {
     // Replace React with Preact in client production build
     if (!dev && !isServer) {
