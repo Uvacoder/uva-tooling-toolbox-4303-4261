@@ -243,6 +243,7 @@ export default function HtmlToMarkdownPage() {
     try {
       const turndown = new Turndown({
         codeBlockStyle: "fenced",
+        headingStyle: "atx",
       })
       turndown.use(turndownGFM.gfm)
       setOutput(turndown.turndown(input))
