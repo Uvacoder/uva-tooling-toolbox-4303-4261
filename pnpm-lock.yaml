@@ -39,6 +39,7 @@ specifiers:
   title: ^3.4.4
   turndown: ^7.1.1
   turndown-plugin-gfm: ^1.0.2
+  typed-worker: ^1.0.1
   typescript: ^4.4.2
 
 dependencies:
@@ -62,6 +63,7 @@ dependencies:
   title: 3.4.4
   turndown: 7.1.1
   turndown-plugin-gfm: 1.0.2
+  typed-worker: 1.0.1
 
 devDependencies:
   '@types/crypto-js': 4.1.1
@@ -3783,6 +3785,12 @@ packages:
   /type-fest/0.16.0:
     resolution: {integrity: sha512-eaBzG6MxNzEn9kiwvtre90cXaNLkmadMWa1zQMs3XORCXNbsH/OewwbxC5ia9dCxIxnTAsSxXJaa/p5y8DlvJg==}
     engines: {node: '>=10'}
+    dev: false
+
+  /typed-worker/1.0.1:
+    resolution: {integrity: sha512-Ep7b0hEZzavj00LCoSrvssVfjOkGitxsl9/F3FmlB4C+f0HSuabQkknrF7pZlcv3rtj5mr6k2KBr/cfbMWgdmg==}
+    dependencies:
+      mitt: 3.0.0
     dev: false
 
   /typescript/4.5.4:
