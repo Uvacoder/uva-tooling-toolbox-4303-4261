@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: any) {
         <Script
           strategy="afterInteractive"
           data-website-id="4ff6897f-d635-4c16-8c67-91c40fae7281"
-          src="https://umami.egoist.sh/mami.js"
+          src="https://umami.egoist.dev/mami.js"
         />
       )}
     </>
