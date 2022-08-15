@@ -13,7 +13,8 @@
     "build": "npm run prep && next build",
     "prep": "npm run vendor-monaco",
     "vendor-monaco": "node scripts/vendor-monaco.js",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "tauri-build": "cross-env IS_TAURI=1 pnpm build && pnpm next export"
   },
   "dependencies": {
     "@trpc/client": "^9.27.0",
@@ -61,6 +62,7 @@
     "@types/turndown": "^5.0.1",
     "@types/workbox-window": "^4.3.4",
     "autoprefixer": "^10.4.8",
+    "cross-env": "^7.0.3",
     "fs-extra": "^10.1.0",
     "monaco-editor": "^0.34.0",
     "postcss": "^8.4.16",
