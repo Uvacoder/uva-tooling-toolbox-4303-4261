@@ -34,7 +34,7 @@ const getMonacoFileUrl = (language: string, filename: string) => {
   const isTS = language === "typescript"
   const isJS = language === "javascript"
   if (isTS || isJS) {
-    return monaco.Uri.file(filename + (isTS ? ".tsx" : ".jsx"))
+    return monaco?.Uri.file(filename + (isTS ? ".tsx" : ".jsx"))
   }
   return undefined
 }
@@ -53,7 +53,7 @@ export default function TextDiffPage() {
     type: "original" | "modified"
   ) => {
     const monaco = getMonaco()
-    return monaco.editor.createModel(
+    return monaco!.editor.createModel(
       value,
       language,
       getMonacoFileUrl(language, type)
@@ -75,7 +75,7 @@ export default function TextDiffPage() {
 
     const originalModel = createModel(`Hello World`, language, "original")
     const modifiedModel = createModel(`Goodbye World`, language, "modified")
-    const editor = monaco.editor.createDiffEditor(editorContainer.current, {
+    const editor = monaco.editor.createDiffEditor(editorContainer.current!, {
       enableSplitViewResizing: false,
       renderSideBySide: !inlineView,
       originalEditable: true,
@@ -100,7 +100,7 @@ export default function TextDiffPage() {
     if (diffEditor) {
       const monaco = getMonaco()
       if (monaco) {
-        const models = diffEditor.getModel()
+        const models = diffEditor.getModel()!
 
         if (language === "typescript" || language === "javascript") {
           // Currently no way to change model uri, so we have to recreate the model

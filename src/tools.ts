@@ -48,6 +48,10 @@ export const tools = [
     link: "/json-to-rust",
   },
   {
+    name: "Zod to TypeScript",
+    link: "/zod-to-ts",
+  },
+  {
     name: "Text Difference",
     link: "/text-diff",
   },
