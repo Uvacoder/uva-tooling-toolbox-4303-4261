@@ -4,7 +4,10 @@ import { z } from "zod"
 import { zodToTs, printNode } from "zod-to-ts"
 import { VM } from "vm2"
 import cors from "cors"
-import connect from "next-connect"
+import { createRouter, expressWrapper } from "next-connect"
+import { NextApiRequest, NextApiResponse } from "next"
+
+const router = createRouter<NextApiRequest, NextApiResponse>()
 
 export const appRouter = trpc.router().query("zod-to-ts", {
   input: z.object({
@@ -43,12 +46,12 @@ export const appRouter = trpc.router().query("zod-to-ts", {
 // export type definition of API
 export type AppRouter = typeof appRouter
 
+const trpcHandler = trpcNext.createNextApiHandler({
+  router: appRouter,
+  createContext: () => null,
+})
+
 // export API handler
-export default connect()
-  .use(cors())
-  .use(
-    trpcNext.createNextApiHandler({
-      router: appRouter,
-      createContext: () => null,
-    })
-  )
+router.use(expressWrapper(cors())).all((req, res) => trpcHandler(req, res))
+
+export default router.handler()
