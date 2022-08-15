@@ -4,8 +4,3 @@ node_modules
 .next
 public/vendor
 generated/
-
-public/sw.js
-public/sw.js.map
-public/workbox*.js
-public/workbox*.js.map

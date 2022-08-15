@@ -1,17 +1,5 @@
-const withPWA = require("next-pwa")
-const runtimeCaching = require("next-pwa/cache")
-const prod = process.env.NODE_ENV === "production"
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pwa: {
-    dest: "public",
-    runtimeCaching,
-    disable: !process.env.ENABLE_PWA && !prod,
-    register: false,
-    skipWaiting: false,
-    publicExcludes: ["!noprecache/**/*", "!vendor/**/*"],
-  },
   env: {
     COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || null,
     PKG_VERSION: require("./package.json").version,
@@ -35,4 +23,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withPWA(nextConfig)
+module.exports = nextConfig

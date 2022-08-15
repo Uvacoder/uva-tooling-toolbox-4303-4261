@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import "../css/tailwind.css"
 import "../css/main.css"
 
-import { SWUpdatePopup } from "~/components/SWUpdatePopup"
 import Script from "next/script"
 import { withTRPC } from "@trpc/next"
 import { AppRouter } from "./api/trpc/[trpc]"
@@ -22,7 +21,6 @@ function MyApp({ Component, pageProps }: any) {
   return (
     <>
       <Component {...pageProps} />
-      <SWUpdatePopup />
       {enableAnalytics && (
         <Script
           strategy="afterInteractive"
