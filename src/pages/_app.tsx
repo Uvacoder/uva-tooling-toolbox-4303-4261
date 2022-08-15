@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: any) {
       {enableAnalytics && (
         <Script
           strategy="afterInteractive"
-          data-website-id="4ff6897f-d635-4c16-8c67-91c40fae7281"
+          data-website-id="997ad654-cb3a-4981-a30f-621da64fc508"
           src="https://umami.egoist.dev/mami.js"
         />
       )}
