@@ -34,7 +34,6 @@ export const appRouter = trpc.router().query("zod-to-ts", {
         handle,
       },
     }).run(code)
-    console.log(result)
     return result
   },
 })

@@ -55,7 +55,9 @@ export default function JwtPage() {
       setHeader(stringify(decoded.header))
       setSignature(decoded.signature)
     } catch (err) {
-      setDecodeError(err.message)
+      if (err instanceof Error) {
+        setDecodeError(err.message)
+      }
     }
   }
 
@@ -67,7 +69,9 @@ export default function JwtPage() {
       )}.${signature}`
       setInput(token)
     } catch (err) {
-      setEncodeError(err.message)
+      if (err instanceof Error) {
+        setEncodeError(err.message)
+      }
     }
   }
 

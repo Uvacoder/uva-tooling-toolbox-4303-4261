@@ -17,8 +17,8 @@ export function copyTextToClipboard(
 
   const selection = document.getSelection()
   let originalRange: false | Range = false
-  if (selection.rangeCount > 0) {
-    originalRange = selection.getRangeAt(0)
+  if (selection!.rangeCount > 0) {
+    originalRange = selection!.getRangeAt(0)
   }
 
   target.append(element)
@@ -36,8 +36,8 @@ export function copyTextToClipboard(
   element.remove()
 
   if (originalRange) {
-    selection.removeAllRanges()
-    selection.addRange(originalRange)
+    selection!.removeAllRanges()
+    selection!.addRange(originalRange)
   }
 
   // Get the focus back on the previously focused element, if any

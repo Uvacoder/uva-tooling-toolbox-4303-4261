@@ -1,5 +1,5 @@
 import { useState } from "react"
-import qrcodeParser from "qrcode-parser";
+import qrcodeParser from "qrcode-parser"
 import { CopyButton, Button } from "../components/Button"
 import { CodeBlock } from "../components/CodeBlock"
 import { Layout } from "../components/Layout"
@@ -27,15 +27,17 @@ export default function QrcodeParserPage() {
 
       const reader = new FileReader()
       reader.onloadend = () => {
-        setImageSrc(reader.result.toString())
+        setImageSrc(reader.result!.toString())
       }
       reader.onerror = (err) => {
         alert(err)
       }
       reader.readAsDataURL(file)
     } catch (err) {
-      setError(err.message)
       console.error(err)
+      if (err instanceof Error) {
+        setError(err.message)
+      }
     }
   }
 
@@ -43,30 +45,39 @@ export default function QrcodeParserPage() {
     resetState()
 
     try {
-      const clipboardItems = await navigator.clipboard.read();
-   
+      const clipboardItems = await navigator.clipboard.read()
+
       for (const clipboardItem of clipboardItems) {
         if (!clipboardItem.types.includes("image/png")) {
-          throw new Error("Clipboard contains non-image data.");
+          throw new Error("Clipboard contains non-image data.")
         }
-        
-        const blob = await clipboardItem.getType("image/png");
-        const url = URL.createObjectURL(blob);
+
+        const blob = await clipboardItem.getType("image/png")
+        const url = URL.createObjectURL(blob)
         const qrcodeContent = await qrcodeParser(url)
 
         setResult(qrcodeContent)
         setImageSrc(url)
       }
     } catch (err) {
-      setError(err.message)
-      console.error(err);
+      console.error(err)
+      if (err instanceof Error) {
+        setError(err.message)
+      }
     }
   }
 
   return (
     <Layout>
       <TwoColumns>
-        <Column title="QR Code Image" renderRight={() => <Button onClick={getClipboardImageContent}>Getting image from clipboard</Button>}>
+        <Column
+          title="QR Code Image"
+          renderRight={() => (
+            <Button onClick={getClipboardImageContent}>
+              Getting image from clipboard
+            </Button>
+          )}
+        >
           <ErrorMessage className="mb-2" message={error} />
           <input type="file" accept="image/png" onChange={handleChange} />
           {imageSrc && (
@@ -81,9 +92,7 @@ export default function QrcodeParserPage() {
         >
           {result && (
             <div>
-              <CodeBlock
-                code={result}
-              />
+              <CodeBlock code={result} />
             </div>
           )}
         </Column>

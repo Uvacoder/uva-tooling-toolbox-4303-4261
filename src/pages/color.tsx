@@ -68,7 +68,9 @@ export default function ColorConvertPage() {
         setKeyword(convert.hex.keyword(hex))
       }
     } catch (e) {
-      setError(e.message)
+      if (e instanceof Error) {
+        setError(e.message)
+      }
     }
   }
 

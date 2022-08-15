@@ -11,7 +11,7 @@ export default function Base64ImagePage() {
     const file = e.target.files[0]
     const reader = new FileReader()
     reader.onloadend = () => {
-      setResult(reader.result.toString())
+      setResult(reader.result!.toString())
     }
     reader.onerror = (err) => {
       alert(err)

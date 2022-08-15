@@ -25,7 +25,9 @@ export default function Base64Page() {
       setEncoded(result)
     } catch (err) {
       console.error(err)
-      setEncodingError(err.message)
+      if (err instanceof Error) {
+        setEncodingError(err.message)
+      }
     }
   }
 
@@ -38,7 +40,9 @@ export default function Base64Page() {
       setDecoded(result)
     } catch (err) {
       console.error(err)
-      setDecodingError(err.message)
+      if (err instanceof Error) {
+        setDecodingError(err.message)
+      }
     }
   }
 

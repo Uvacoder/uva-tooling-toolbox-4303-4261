@@ -2,20 +2,21 @@ import clsx from "clsx"
 import React from "react"
 import { copyTextToClipboard } from "../utils/copy"
 
-export const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> =
-  ({ children, className, ...props }) => {
-    return (
-      <button
-        {...props}
-        className={clsx(
-          className,
-          `bg-gray-200 rounded-lg px-3 py-1 text-sm inline-flex items-center active:bg-blue-500 active:text-white`
-        )}
-      >
-        {children}
-      </button>
-    )
-  }
+export const Button: React.FC<
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+> = ({ children, className, ...props }) => {
+  return (
+    <button
+      {...props}
+      className={clsx(
+        className,
+        `bg-gray-200 rounded-lg px-3 py-1 text-sm inline-flex items-center active:bg-blue-500 active:text-white`
+      )}
+    >
+      {children}
+    </button>
+  )
+}
 
 export const CopyButton: React.FC<{ getValue: () => string }> = ({
   getValue,
@@ -30,7 +31,7 @@ export const CopyButton: React.FC<{ getValue: () => string }> = ({
           setCopied(false)
         }, 2000)
       }}
-      className={copied && `text-green-600`}
+      className={clsx(copied && `text-green-600`)}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

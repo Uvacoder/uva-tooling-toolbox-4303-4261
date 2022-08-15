@@ -4,3 +4,5 @@ declare module "title" {
 }
 
 declare module "monaco-editor/min/vs/loader"
+declare module "color-convert"
+declare module "turndown-plugin-gfm"

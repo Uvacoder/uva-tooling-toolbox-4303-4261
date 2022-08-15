@@ -19,7 +19,9 @@ export default function QrcodePage() {
       })
       setQrcode(dataURL)
     } catch (err) {
-      setError(err.message)
+      if (err instanceof Error) {
+        setError(err.message)
+      }
       console.error(err)
     }
   }

@@ -20,7 +20,9 @@ export default function JsonFormatPage() {
       )
     } catch (err) {
       console.error(err)
-      setError(err.message)
+      if (err instanceof Error) {
+        setError(err.message)
+      }
     }
   }, [input])
 
