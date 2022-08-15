@@ -10,6 +10,12 @@ function MyApp({ Component, pageProps }: any) {
   const [enableAnalytics, setEnableAnalytics] = useState(false)
 
   useEffect(() => {
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+      for (const registration of registrations) {
+        registration.unregister()
+      }
+    })
+
     if (
       process.env.NODE_ENV === "production" &&
       location.hostname === "tooling.one"
