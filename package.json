@@ -5,8 +5,8 @@
   "license": "GPL-3.0",
   "author": {
     "name": "EGOIST (Kevin)",
-    "email": "hi@egoist.sh",
-    "url": "https://egoist.sh"
+    "email": "hi@egoist.dev",
+    "url": "https://egoist.dev"
   },
   "scripts": {
     "dev": "npm run prep && next",
@@ -35,7 +35,9 @@
     "title": "^3.4.4",
     "turndown": "^7.1.1",
     "turndown-plugin-gfm": "^1.0.2",
-    "typed-worker": "^1.0.1"
+    "typed-worker": "^1.0.1",
+    "zod": "^3.18.0",
+    "zod-to-ts": "^1.1.1"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",

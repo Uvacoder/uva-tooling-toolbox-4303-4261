@@ -1,8 +1,14 @@
 import Image from "next/image"
 import storyblok from "~/images/storyblok.png"
-import oxylabs from "~/images/oxylabs.png"
+import browserku from "~/images/browserku.png"
 
 const sponsors = [
+  {
+    title:
+      "Browserku: REST API for web scraping, screenshots, PDF generation and more",
+    image: browserku,
+    url: `https://browserku.com`,
+  },
   {
     title:
       "Storyblok: Build projects faster with the most flexible headless CMS out there",
@@ -32,7 +38,7 @@ export const Sponsors = () => {
               title={title}
               target="_blank"
               rel="nofollow noopener"
-              className="bg-zinc-200 rounded p-3 flex items-center justify-center"
+              className="bg-zinc-200 hover:bg-zinc-300 transition-colors rounded p-3 flex items-center justify-center"
               href={url}
             >
               <Image src={image} />
