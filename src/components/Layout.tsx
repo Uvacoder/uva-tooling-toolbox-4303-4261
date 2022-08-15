@@ -4,7 +4,10 @@ import Head from "next/head"
 import { tools } from "~/tools"
 import { useRouter } from "next/router"
 
-export const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
+export const Layout: React.FC<{
+  title?: string
+  children?: React.ReactNode
+}> = ({ children, title }) => {
   const router = useRouter()
   const tool = React.useMemo(
     () => tools.find((t) => t.link === router.asPath),

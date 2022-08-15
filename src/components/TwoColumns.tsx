@@ -1,6 +1,8 @@
 import React from "react"
 
-export const TwoColumns: React.FC = ({ children }) => {
+export const TwoColumns: React.FC<{ children?: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <div className="md:grid md:grid-cols-2 divide-x md:min-h-screen">
       {children}
@@ -11,6 +13,7 @@ export const TwoColumns: React.FC = ({ children }) => {
 export const Column: React.FC<{
   title: string
   renderRight?: () => React.ReactNode
+  children?: React.ReactNode
 }> = ({ children, title, renderRight }) => {
   return (
     <div className="p-5">
