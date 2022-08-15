@@ -13,24 +13,6 @@ const nextConfig = {
 
     return config
   },
-  async headers() {
-    return [
-      {
-        source: "/api/(.*)",
-        headers: [
-          // enable cors
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "*",
-          },
-          {
-            key: "Access-Control-Allow-Methods",
-            value: "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-          },
-        ],
-      },
-    ]
-  },
 }
 
 module.exports = nextConfig
