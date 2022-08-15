@@ -12,7 +12,8 @@
     "dev": "npm run prep && next",
     "build": "npm run prep && next build",
     "prep": "npm run vendor-monaco",
-    "vendor-monaco": "node scripts/vendor-monaco.js"
+    "vendor-monaco": "node scripts/vendor-monaco.js",
+    "tauri": "tauri"
   },
   "dependencies": {
     "@trpc/client": "^9.27.0",
@@ -45,6 +46,8 @@
     "zod-to-ts": "^1.1.1"
   },
   "devDependencies": {
+    "@tauri-apps/api": "^1.0.2",
+    "@tauri-apps/cli": "^1.0.5",
     "@types/crypto-js": "^4.1.1",
     "@types/diff": "^5.0.2",
     "@types/fs-extra": "^9.0.13",

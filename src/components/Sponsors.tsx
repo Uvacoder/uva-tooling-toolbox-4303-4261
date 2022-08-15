@@ -1,4 +1,3 @@
-import Image from "next/image"
 import storyblok from "~/images/storyblok.png"
 import browserku from "~/images/browserku.png"
 
@@ -41,7 +40,7 @@ export const Sponsors = () => {
               className="bg-zinc-200 hover:bg-zinc-300 transition-colors rounded p-3 flex items-center justify-center"
               href={url}
             >
-              <Image src={image} />
+              <img src={image.src} width={image.width} height={image.height} />
             </a>
           )
         })}
