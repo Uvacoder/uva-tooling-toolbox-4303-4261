@@ -17,7 +17,7 @@ export default function HomePage() {
             src="/github-sponsors-logo.svg"
             className="w-1- h-10"
           />
-          <span>Sponsor this project on GitHub.</span>
+          <span>Welcome to the Toolbox.</span>
         </a>
         <div className="bg-cyan-100 text-cyan-700 font-bold p-5 rounded-lg space-y-3">
           <p>
