@@ -32,7 +32,7 @@ export default function HomePage() {
           )
         })}
       </div>
-      <div className="bg-cyan-100 text-cyan-700 font-bold p-5 rounded-lg space-y-3">
+      <div className="p-5 max-w-screen-lg bg-cyan-100 text-cyan-700 font-bold p-5 rounded-lg space-y-3">
           <p>
             The Toolbox is a collection of useful tools for developers, it works
             locally mostly, no data will be uploaded to any server unless
