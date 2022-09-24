@@ -25,7 +25,27 @@ https://tooling.one
           </ul>
         </div>
         
-        
+-----
+
+<div className="bg-cyan-100 text-cyan-700 font-bold p-5 rounded-lg space-y-3">
+          <p>
+            The Toolbox is a collection of useful tools for developers, it works
+            locally mostly, no data will be uploaded to any server unless
+            otherwise noted.
+          </p>
+          <p className="">
+            I'll keep adding tools to the site, Check out the GitHub repo{" "}
+            <a
+              href="https://github.com/uvacoder/abc-tooling"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+        </div>
 ## Development
 
 ```bash
