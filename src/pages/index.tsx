@@ -21,15 +21,14 @@ export default function HomePage() {
         </a>
         <div className="bg-cyan-100 text-cyan-700 font-bold p-5 rounded-lg space-y-3">
           <p>
-            tooling.one is a collection of useful tools for developers, it works
+            The Toolbox is a collection of useful tools for developers, it works
             locally mostly, no data will be uploaded to any server unless
             otherwise noted.
           </p>
           <p className="">
-            I'm keeping adding new tools to this website, you can also suggest
-            ideas on{" "}
+            I'll keep adding tools to the site, Check out the GitHub repo{" "}
             <a
-              href="https://github.com/egoist/tooling.one/issues"
+              href="https://github.com/uvacoder/abc-tooling"
               className="underline"
               target="_blank"
               rel="noopener noreferrer"
